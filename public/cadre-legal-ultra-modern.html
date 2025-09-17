@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadre Légal & Dispensation Sécurisée - Présentation Ultra Moderne</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0F172A;
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated matrix background */
+        .matrix-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 1;
+        }
+
+        .matrix-line {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #10B981, transparent);
+            animation: matrix-fall 10s linear infinite;
+        }
+
+        @keyframes matrix-fall {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        /* Animated grid */
+        .grid-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(51, 65, 85, 0.5);
+            position: relative;
+            overflow: hidden;
+            z-index: 100;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #6366F1 0%, #10B981 100%);
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 50px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6));
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(50px); }
+        }
+
+        /* Main Content */
+        .slide-content {
+            flex: 1;
+            padding: 3rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Title Slide */
+        .title-slide {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .icon-container {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #6366F1 0%, #10B981 100%);
+            border-radius: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.4);
+            animation: float-rotate 6s ease-in-out infinite;
+            position: relative;
+        }
+
+        .icon-container::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, #6366F1 0%, #10B981 100%);
+            border-radius: 35px;
+            filter: blur(20px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        @keyframes float-rotate {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #94A3B8;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #6366F1 0%, #10B981 100%);
+            border-radius: 2px;
+            animation: expand 0.8s ease-out;
+        }
+
+        @keyframes expand {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(51, 65, 85, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        /* Objectives Grid */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .objective-card {
+            background: rgba(51, 65, 85, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .objective-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .objective-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .objective-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #818CF8;
+        }
+
+        /* Module Cards */
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .module-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .conseil-box {
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid #6366F1;
+        }
+
+        .conseil-box h4 {
+            color: #C7D2FE;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .conseil-box p {
+            color: #E0E7FF;
+        }
+
+        /* Callouts */
+        .callout {
+            padding: 1.8rem;
+            border-radius: 16px;
+            margin-bottom: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .callout-danger {
+            background: rgba(244, 63, 94, 0.1);
+            border: 1px solid rgba(244, 63, 94, 0.3);
+        }
+
+        .callout-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .callout-info {
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
+        .callout:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .callout h3 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .callout p {
+            color: #CBD5E1;
+        }
+
+        /* Charts */
+        .chart-container {
+            background: rgba(51, 65, 85, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        /* Bar Chart */
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 250px;
+            margin: 2rem 0;
+        }
+
+        .bar {
+            flex: 1;
+            margin: 0 0.5rem;
+            background: linear-gradient(180deg, #6366F1 0%, #10B981 100%);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: growBar 1s ease-out backwards;
+        }
+
+        .bar:nth-child(1) { animation-delay: 0.3s; height: 60%; }
+        .bar:nth-child(2) { animation-delay: 0.6s; height: 80%; }
+        .bar:nth-child(3) { animation-delay: 0.9s; height: 100%; }
+
+        @keyframes growBar {
+            from { height: 0; }
+        }
+
+        .pie-legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pie-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #E2E8F0;
+        }
+
+        .pie-legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .bar:hover {
+            transform: scaleY(1.05);
+            filter: brightness(1.2);
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #94A3B8;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Pie Chart */
+        .pie-chart {
+            width: 300px;
+            height: 300px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .pie-chart svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Progress Ring */
+        .progress-ring {
+            width: 200px;
+            height: 200px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .progress-ring svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring-bg {
+            fill: none;
+            stroke: rgba(51, 65, 85, 0.3);
+            stroke-width: 20;
+        }
+
+        .progress-ring-fill {
+            fill: none;
+            stroke: url(#gradient);
+            stroke-width: 20;
+            stroke-linecap: round;
+            stroke-dasharray: 565.48;
+            stroke-dashoffset: 141.37;
+            animation: fillRing 2s ease-out forwards;
+        }
+
+        @keyframes fillRing {
+            from { stroke-dashoffset: 565.48; }
+        }
+
+        .progress-ring-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Cases */
+        .case-card {
+            background: rgba(51, 65, 85, 0.6);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid;
+            border-image: linear-gradient(180deg, #6366F1 0%, #10B981 100%) 1;
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .case-card h3 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-card p {
+            color: #CBD5E1;
+            line-height: 1.6;
+        }
+
+        /* Summary Points */
+        .summary-points {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .summary-point {
+            background: rgba(51, 65, 85, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid;
+            border-image: linear-gradient(180deg, #6366F1 0%, #10B981 100%) 1;
+            color: #E2E8F0;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .summary-point:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Interactive Diagram */
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .flow-box {
+            background: rgba(51, 65, 85, 0.6);
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .flow-box:hover {
+            transform: scale(1.05);
+            border-color: #10B981;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .flow-arrow {
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #6366F1, #10B981);
+            position: relative;
+        }
+
+        .flow-arrow::after {
+            content: '▶';
+            position: absolute;
+            right: -10px;
+            top: -8px;
+            color: #10B981;
+        }
+
+        /* Footer */
+        .footer {
+            height: 70px;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(51, 65, 85, 0.5);
+            position: relative;
+            z-index: 20;
+        }
+
+        .footer-left {
+            color: #94A3B8;
+            font-size: 0.9rem;
+        }
+
+        .footer-center {
+            font-weight: 600;
+            color: #E2E8F0;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #818CF8;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            transform: scale(1.1);
+            background: rgba(99, 102, 241, 0.2);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Bullets */
+        .bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bullets li {
+            padding: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #E2E8F0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .bullets li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .slide-content { padding: 2rem 1.5rem; }
+            .objectives-grid { grid-template-columns: 1fr; }
+            .flow-diagram { flex-direction: column; }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .scale-in {
+            animation: scaleIn 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Hide */
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Animated background -->
+        <div class="grid-bg"></div>
+        <div class="matrix-bg" id="matrixBg"></div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar" style="width: 6.67%"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="slide-content" id="slideContent">
+            <!-- Content will be inserted here -->
+        </div>
+
+        <!-- Footer with Navigation -->
+        <div class="footer">
+            <div class="footer-left">© Contenu réalisé par le Docteur Dan Amzallag</div>
+            <div class="footer-center">
+                <span id="slideNumber">1</span> / <span id="totalSlides">15</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" disabled>
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create matrix background
+        const matrixBg = document.getElementById('matrixBg');
+        for (let i = 0; i < 20; i++) {
+            const line = document.createElement('div');
+            line.className = 'matrix-line';
+            line.style.left = Math.random() * 100 + '%';
+            line.style.animationDelay = Math.random() * 10 + 's';
+            line.style.animationDuration = (10 + Math.random() * 10) + 's';
+            matrixBg.appendChild(line);
+        }
+
+        const slides = [
+            {
+                id: 'titre',
+                type: 'title',
+                title: 'Cadre des nouvelles missions, responsabilités & périmètre de l\'équipe officinale',
+                subtitle: 'Bloc 3 — Mise à jour des connaissances en législation'
+            },
+            {
+                id: 'objectifs',
+                type: 'objectives',
+                title: 'Objectifs pédagogiques',
+                items: [
+                    { icon: '⚖️', text: 'Cartographier les nouvelles missions conventionnelles en officine' },
+                    { icon: '📄', text: 'Clarifier responsabilités du pharmacien (titulaire/adjoints) et du reste de l\'équipe' },
+                    { icon: '📋', text: 'Organiser délégation, habilitation et procédures écrites' },
+                    { icon: '🔒', text: 'Structurer la traçabilité (DP/DMP, MSS) et la protection des données' },
+                    { icon: '⚠️', text: 'Sécuriser facturation (TAC/ASI/ASS) et prévenir les non-conformités' }
+                ]
+            },
+            {
+                id: 'panorama',
+                type: 'cards',
+                title: 'Panorama des nouvelles missions',
+                cards: [
+                    'Entretiens pharmaceutiques conventionnels : Femme enceinte, Opioïdes antalgiques, Asthme, AVK, AOD (trame, supports, facturation).',
+                    'Prévention & repérage : conseils structurés, messages de sécurité, orientation médicale si signes d\'alerte.',
+                    'Coordination & traçabilité : DP/DMP, messagerie sécurisée vers le médecin traitant, archivage des fiches d\'entretien et bulletins d\'adhésion.'
+                ]
+            },
+            {
+                id: 'stats',
+                type: 'stats',
+                title: 'Impact des nouvelles missions',
+                subtitle: 'Données clés de mise en œuvre'
+            },
+            {
+                id: 'roles-pharm',
+                type: 'module',
+                icon: '🛡️',
+                title: 'Rôle & responsabilités du pharmacien',
+                points: [
+                    'Garant de l\'analyse pharmaceutique et de la décision clinique (acceptation/refus de délivrance).',
+                    'Conduit les entretiens cliniques, valide les plans de prise et les messages clés.',
+                    'Assure la signature et la traçabilité des interventions (DP/DMP, fiche entretien).',
+                    'Responsabilités civile, pénale et disciplinaire engagées en cas de manquements.'
+                ],
+                conseil: 'Définir une trame d\'intervention standard pour chaque mission et l\'intégrer au manuel qualité.'
+            },
+            {
+                id: 'roles-equipe',
+                type: 'module',
+                icon: '👥',
+                title: 'Périmètre de l\'équipe officinale',
+                points: [
+                    'Participation à la délivrance sous contrôle effectif du pharmacien.',
+                    'Réalisation d\'étapes préparatoires des entretiens : recueil d\'infos, rappels d\'observance, mise à jour DP.',
+                    'Mise en œuvre des supports (fiches, plan de prise), repérage de signaux d\'alerte et transmission immédiate au pharmacien.',
+                    'Pas de décision clinico-thérapeutique autonome ; les actes sensibles sont validés par un pharmacien.'
+                ],
+                conseil: 'Formaliser une matrice « qui fait quoi » par mission, avec niveaux d\'habilitation.'
+            },
+            {
+                id: 'delegation',
+                type: 'flow',
+                title: 'Processus de délégation & habilitation'
+            },
+            {
+                id: 'traces',
+                type: 'cards',
+                title: 'Documents & traçabilité — kit de base',
+                cards: [
+                    'Bulletin d\'adhésion à la mission + consentement informé.',
+                    'Fiches d\'entretien standardisées (séance 1, modules, bilan/ass).',
+                    'Plans de prise & fiches conduites à tenir (oubli, saignement, exacerbation).',
+                    'Messages types MSS au médecin, modèles de compte rendu court.',
+                    'Archivage : DP/DMP mis à jour, classement numérique sécurisé.'
+                ]
+            },
+            {
+                id: 'facturation',
+                type: 'billing',
+                title: 'Flux & facturation conventionnelle'
+            },
+            {
+                id: 'rgpd',
+                type: 'module',
+                icon: '🔐',
+                title: 'Protection des données & confidentialité',
+                points: [
+                    'Base légale de traitement : soins/obligations réglementaires ; information patient sur ses droits.',
+                    'Minimisation des données, durée de conservation maîtrisée, registre des traitements.',
+                    'Sécurité opérationnelle : contrôle d\'accès, écrans non visibles, zones de confidentialité.'
+                ],
+                conseil: 'Désigner un référent RGPD et documenter toute violation avec actions correctives.'
+            },
+            {
+                id: 'risques',
+                type: 'callouts',
+                title: 'Non-conformités & risques à prévenir',
+                callouts: [
+                    { level: 'danger', title: 'Acte non tracé / document manquant', text: 'Entretiens réalisés sans fiche ni DP/DMP à jour = perte de preuve et risque médico-légal.' },
+                    { level: 'warn', title: 'Cumul/erreur de facturation', text: 'Acte non isolé ou codes inversés ; vérifier avant télétransmission.' },
+                    { level: 'info', title: 'Périmètre dépassé', text: 'Tâches confiées hors habilitation ; rappeler la matrice « qui fait quoi ».' }
+                ]
+            },
+            {
+                id: 'cas',
+                type: 'cases',
+                title: 'Mini-cas — organisation des missions en équipe',
+                cases: [
+                    { title: 'AOD : parcours standardisé', story: 'Préparateur : recueil données & DP ; Pharmacien : entretien clinique, messages clés, MSS si besoin ; Traçabilité + facturation ASI/ASS.' },
+                    { title: 'Femme enceinte : repérage & conseils', story: 'Repérage au comptoir, absence d\'automédication risquée, remise fiche sécurité, coordination avec sage-femme/médecin si signes d\'alerte.' },
+                    { title: 'Asthme : technique & observance', story: 'Démonstration inhalation, contrôle régulier, plan d\'action écrit ; reporter sur la fiche et dans le DP.' }
+                ]
+            },
+            {
+                id: 'indicateurs',
+                type: 'indicators',
+                title: 'Indicateurs qualité & pilotage'
+            },
+            {
+                id: 'deploiement',
+                type: 'cards',
+                title: 'Plan de déploiement en officine',
+                cards: [
+                    'Nommer un référent « missions » et une suppléance.',
+                    'Prioriser : séquencer l\'implémentation (AOD/AVK → Asthme → Opioïdes → Femme enceinte).',
+                    'Former/habiliter l\'équipe, paramétrer le LGO (modèles, libellés).',
+                    'Lancer avec 3 patients pilotes par mission, puis généraliser.'
+                ]
+            },
+            {
+                id: 'fin',
+                type: 'conclusion',
+                title: 'S1 — Cadre, responsabilités & périmètre : opérationnels',
+                subtitle: 'Standardiser • Tracer • Améliorer'
+            }
+        ];
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function renderSlide(slide) {
+            const content = document.getElementById('slideContent');
+            content.innerHTML = '';
+            content.className = 'slide-content fade-in';
+
+            switch(slide.type) {
+                case 'title':
+                case 'conclusion':
+                    content.innerHTML = `
+                        <div class="title-slide">
+                            <div class="icon-container">
+                                <svg width="70" height="70" fill="white" viewBox="0 0 24 24">
+                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-4z"/>
+                                </svg>
+                            </div>
+                            <h1>${slide.title}</h1>
+                            ${slide.subtitle ? `<p class="subtitle">${slide.subtitle}</p>` : ''}
+                        </div>
+                    `;
+                    break;
+
+                case 'objectives':
+                    content.innerHTML = `
+                        <h2>${slide.title}</h2>
+                        <div class="objectives-grid">
+                            ${slide.items.map((item, i) => `
+                                <div class="objective-card scale-in" style="animation-delay: ${i * 0.2}s">
+                                    <div class="objective-icon">
+                                        <span style="font-size: 24px;">${item.icon}</span>
+                                    </div>
+                                    <p style="color: #E2E8F0;">${item.text}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    break;
+
+                case 'cards':
+                    content.innerHTML = `
+                        <h2>${slide.title}</h2>
+                        <div>
+                            ${slide.cards.map((card, i) => `
+                                <div class="card scale-in" style="animation-delay: ${i * 0.2}s">
+                                    <p style="color: #E2E8F0; font-size: 1.1rem; line-height: 1.7;">${card}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    break;
+
+                case 'stats':
+                    content.innerHTML = `
+                        <h2>${slide.title}</h2>
+                        ${slide.subtitle ? `<p style="color: #94A3B8; margin-bottom: 2rem;">${slide.subtitle}</p>` : ''}
+                        <div class="chart-container">
+                            <div class="bar-chart">
+                                <div class="bar">
+                                    <span class="bar-value">75%</span>
+                                    <span class="bar-label">Couverture</span>
+                                </div>
+                                <div class="bar">
+                                    <span class="bar-value">85%</span>
+                                    <span class="bar-label">Conformité</span>
+                                </div>
+                                <div class="bar">
+                                    <span class="bar-value">95%</span>
+                                    <span class="bar-label">Satisfaction</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem;">
+                            <div class="card" style="text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: bold; color: #10B981;">+40%</div>
+                                <p style="color: #94A3B8;">Patients suivis</p>
+                            </div>
+                            <div class="card" style="text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: bold; color: #6366F1;">3.2k</div>
+                                <p style="color: #94A3B8;">Entretiens/an</p>
+                            </div>
+                            <div class="card" style="text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: bold; color: #F59E0B;">98%</div>
+                                <p style="color: #94A3B8;">Traçabilité</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'module':
+                    content.innerHTML = `
+                        <div class="module-header">
+                            <div class="module-icon">${slide.icon}</div>
+                            <h2>${slide.title}</h2>
+                        </div>
+                        <div class="card">
+                            <ul class="bullets">
+                                ${slide.points.map(p => `<li>${p}</li>`).join('')}
+                            </ul>
+                            ${slide.conseil ? `
+                                <div class="conseil-box">
+                                    <h4>Conseil pratique</h4>
+                                    <p>${slide.conseil}</p>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                    break;
+
+                case 'flow':
+                    content.innerHTML = `
+                        <h2>${slide.title}</h2>
+                        <div class="flow-diagram">
+                            <div class="flow-box">
+                                <h3>1. Procédures</h3>
+                                <p>Écrites & validées</p>
+                            </div>
+                            <div class="flow-arrow"></div>
+                            <div class="flow-box">
+                                <h3>2. Formation</h3>
+                                <p>Équipe habilitée</p>
+                            </div>
+                            <div class="flow-arrow"></div>
+                            <div class="flow-box">
+                                <h3>3. Validation</h3>
+                                <p>Double signature</p>
+                            </div>
+                            <div class="flow-arrow"></div>
+                            <div class="flow-box">
+                                <h3>4. Audit</h3>
+                                <p>Revue trimestrielle</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'billing':
+                    content.innerHTML = `
+                        <h2>${slide.title}</h2>
+                        <div class="chart-container">
+                            <div class="progress-ring">
+                                <svg viewBox="0 0 200 200">
+                                    <defs>
+                                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="100" cy="100" r="90" class="progress-ring-bg"></circle>
+                                    <circle cx="100" cy="100" r="90" class="progress-ring-fill"></circle>
+                                </svg>
+                                <div class="progress-ring-text">75%</div>
+                            </div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
+                            <div class="card">
+                                <h3 style="color: #10B981; margin-bottom: 0.5rem;">TAC</h3>
+                                <p style="color: white; font-size: 1.5rem; font-weight: bold;">0,01 €</p>
+                                <p style="color: #94A3B8; font-size: 0.9rem;">Adhésion traceur</p>
+                            </div>
+                            <div class="card">
+                                <h3 style="color: #6366F1; margin-bottom: 0.5rem;">ASI</h3>
+                                <p style="color: white; font-size: 1.5rem; font-weight: bold;">15-20 €</p>
+                                <p style="color: #94A3B8; font-size: 0.9rem;">Année 1 (3 entretiens)</p>
+                            </div>
+                            <div class="card">
+                                <h3 style="color: #F59E0B; margin-bottom: 0.5rem;">ASS</h3>
+                                <p style="color: white; font-size: 1.5rem; font-weight: bold;">10-20 €</p>
+                                <p style="color: #94A3B8; font-size: 0.9rem;">Années suivantes (2 entretiens)</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'callouts':
+                    content.innerHTML = `
+                        <h2>${slide.title}</h2>
+                        ${slide.callouts.map(c => `
+                            <div class="callout callout-${c.level === 'danger' ? 'danger' : c.level === 'warn' ? 'warning' : 'info'}">
+                                <h3>${c.title}</h3>
+                                <p>${c.text}</p>
+                            </div>
+                        `).join('')}
+                    `;
+                    break;
+
+                case 'cases':
+                    content.innerHTML = `
+                        <h2>${slide.title}</h2>
+                        ${slide.cases.map(c => `
+                            <div class="case-card">
+                                <h3>${c.title}</h3>
+                                <p>${c.story}</p>
+                            </div>
+                        `).join('')}
+                    `;
+                    break;
+
+                case 'indicators':
+                    content.innerHTML = `
+                        <h2>${slide.title}</h2>
+                        <div class="chart-container">
+                            <div class="pie-chart">
+                                <svg viewBox="0 0 300 300">
+                                    <g transform="translate(150, 150)">
+                                        <path d="M 0 -100 A 100 100 0 0 1 86.6 -50 L 0 0 Z" fill="#10B981" opacity="0.9"/>
+                                        <path d="M 86.6 -50 A 100 100 0 0 1 86.6 50 L 0 0 Z" fill="#6366F1" opacity="0.9"/>
+                                        <path d="M 86.6 50 A 100 100 0 0 1 0 100 L 0 0 Z" fill="#F59E0B" opacity="0.9"/>
+                                        <path d="M 0 100 A 100 100 0 0 1 -86.6 50 L 0 0 Z" fill="#EF4444" opacity="0.9"/>
+                                        <path d="M -86.6 50 A 100 100 0 0 1 -86.6 -50 L 0 0 Z" fill="#8B5CF6" opacity="0.9"/>
+                                        <path d="M -86.6 -50 A 100 100 0 0 1 0 -100 L 0 0 Z" fill="#EC4899" opacity="0.9"/>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card" style="margin-top: 2rem;">
+                            <ul class="bullets">
+                                <li>Couverture : % de patients éligibles engagés dans chaque mission</li>
+                                <li>Process : % fiches complètes + délais d\'envoi MSS</li>
+                                <li>Résultats : évènements indésirables évités, satisfaction patient, retours prescripteurs</li>
+                            </ul>
+                            <p style="color: #818CF8; margin-top: 1rem;">💡 Tableau de bord mensuel + revue d\'équipe trimestrielle</p>
+                        </div>
+                    `;
+                    break;
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('slideNumber').textContent = currentSlide + 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            
+            renderSlide(slides[currentSlide]);
+            updateProgress();
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        document.getElementById('totalSlides').textContent = totalSlides;
+        renderSlide(slides[0]);
+        updateProgress();
+    </script>
+</body>
+</html>

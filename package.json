@@ -1,0 +1,11 @@
+{
+  "name": "bloc-3-s1-cadre-legal-vercel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Déploiement Vercel - BLOC 3 S1 Cadre légal (HTML statique)",
+  "scripts": {
+    "dev": "vercel dev --yes",
+    "build": "echo \"Static project—no build step\"",
+    "start": "npx http-server public -p 3000 -c-1"
+  }
+}
