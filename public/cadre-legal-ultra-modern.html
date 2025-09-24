@@ -602,6 +602,130 @@
             color: #10B981;
         }
 
+        /* Interactive Indicators Diagram for Slide 13 */
+        .indicators-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .indicator-item {
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(51, 65, 85, 0.6);
+            border: 3px solid rgba(99, 102, 241, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .indicator-circle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .indicator-item:hover .indicator-circle::before {
+            opacity: 1;
+        }
+
+        .indicator-item:hover .indicator-circle {
+            transform: scale(1.1);
+            border-color: #10B981;
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .indicator-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #10B981;
+            margin-bottom: 0.25rem;
+        }
+
+        .indicator-unit {
+            font-size: 0.9rem;
+            color: #94A3B8;
+        }
+
+        .indicator-label {
+            color: #E2E8F0;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .indicator-description {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            width: 250px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .indicator-description::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .indicator-item:hover .indicator-description {
+            opacity: 1;
+            bottom: -80px;
+            pointer-events: all;
+        }
+
+        .indicator-description p {
+            color: #CBD5E1;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .indicators-connection {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), rgba(16, 185, 129, 0.3), transparent);
+            z-index: -1;
+        }
+
         /* Footer */
         .footer {
             height: 70px;
@@ -686,6 +810,8 @@
             .slide-content { padding: 2rem 1.5rem; }
             .objectives-grid { grid-template-columns: 1fr; }
             .flow-diagram { flex-direction: column; }
+            .indicators-container { flex-direction: column; gap: 2rem; }
+            .indicators-connection { display: none; }
         }
 
         /* Animations */
@@ -765,7 +891,7 @@
                 id: 'titre',
                 type: 'title',
                 title: 'Cadre des nouvelles missions, responsabilités & périmètre de l\'équipe officinale',
-                subtitle: 'Bloc 3 — Mise à jour des connaissances en législation'
+                subtitle: 'Bloc 3 – Mise à jour des connaissances en législation'
             },
             {
                 id: 'objectifs',
@@ -773,7 +899,7 @@
                 title: 'Objectifs pédagogiques',
                 items: [
                     { icon: '⚖️', text: 'Cartographier les nouvelles missions conventionnelles en officine' },
-                    { icon: '📄', text: 'Clarifier responsabilités du pharmacien (titulaire/adjoints) et du reste de l\'équipe' },
+                    { icon: '🔄', text: 'Clarifier responsabilités du pharmacien (titulaire/adjoints) et du reste de l\'équipe' },
                     { icon: '📋', text: 'Organiser délégation, habilitation et procédures écrites' },
                     { icon: '🔒', text: 'Structurer la traçabilité (DP/DMP, MSS) et la protection des données' },
                     { icon: '⚠️', text: 'Sécuriser facturation (TAC/ASI/ASS) et prévenir les non-conformités' }
@@ -829,7 +955,7 @@
             {
                 id: 'traces',
                 type: 'cards',
-                title: 'Documents & traçabilité — kit de base',
+                title: 'Documents & traçabilité – kit de base',
                 cards: [
                     'Bulletin d\'adhésion à la mission + consentement informé.',
                     'Fiches d\'entretien standardisées (séance 1, modules, bilan/ass).',
@@ -868,7 +994,7 @@
             {
                 id: 'cas',
                 type: 'cases',
-                title: 'Mini-cas — organisation des missions en équipe',
+                title: 'Mini-cas – organisation des missions en équipe',
                 cases: [
                     { title: 'AOD : parcours standardisé', story: 'Préparateur : recueil données & DP ; Pharmacien : entretien clinique, messages clés, MSS si besoin ; Traçabilité + facturation ASI/ASS.' },
                     { title: 'Femme enceinte : repérage & conseils', story: 'Repérage au comptoir, absence d\'automédication risquée, remise fiche sécurité, coordination avec sage-femme/médecin si signes d\'alerte.' },
@@ -894,7 +1020,7 @@
             {
                 id: 'fin',
                 type: 'conclusion',
-                title: 'S1 — Cadre, responsabilités & périmètre : opérationnels',
+                title: 'S1 – Cadre, responsabilités & périmètre : opérationnels',
                 subtitle: 'Standardiser • Tracer • Améliorer'
             }
         ];
@@ -1101,27 +1227,46 @@
                 case 'indicators':
                     content.innerHTML = `
                         <h2>${slide.title}</h2>
-                        <div class="chart-container">
-                            <div class="pie-chart">
-                                <svg viewBox="0 0 300 300">
-                                    <g transform="translate(150, 150)">
-                                        <path d="M 0 -100 A 100 100 0 0 1 86.6 -50 L 0 0 Z" fill="#10B981" opacity="0.9"/>
-                                        <path d="M 86.6 -50 A 100 100 0 0 1 86.6 50 L 0 0 Z" fill="#6366F1" opacity="0.9"/>
-                                        <path d="M 86.6 50 A 100 100 0 0 1 0 100 L 0 0 Z" fill="#F59E0B" opacity="0.9"/>
-                                        <path d="M 0 100 A 100 100 0 0 1 -86.6 50 L 0 0 Z" fill="#EF4444" opacity="0.9"/>
-                                        <path d="M -86.6 50 A 100 100 0 0 1 -86.6 -50 L 0 0 Z" fill="#8B5CF6" opacity="0.9"/>
-                                        <path d="M -86.6 -50 A 100 100 0 0 1 0 -100 L 0 0 Z" fill="#EC4899" opacity="0.9"/>
-                                    </g>
-                                </svg>
+                        <div class="indicators-container">
+                            <div class="indicators-connection"></div>
+                            <div class="indicator-item">
+                                <div class="indicator-circle">
+                                    <div class="indicator-value">85%</div>
+                                    <div class="indicator-unit">Couverture</div>
+                                </div>
+                                <div class="indicator-label">Patients éligibles</div>
+                                <div class="indicator-description">
+                                    <p>Pourcentage de patients éligibles engagés dans chaque mission conventionnelle</p>
+                                </div>
+                            </div>
+                            <div class="indicator-item">
+                                <div class="indicator-circle">
+                                    <div class="indicator-value">92%</div>
+                                    <div class="indicator-unit">Process</div>
+                                </div>
+                                <div class="indicator-label">Conformité</div>
+                                <div class="indicator-description">
+                                    <p>Fiches complètes et délais d'envoi MSS respectés selon les protocoles</p>
+                                </div>
+                            </div>
+                            <div class="indicator-item">
+                                <div class="indicator-circle">
+                                    <div class="indicator-value">-47%</div>
+                                    <div class="indicator-unit">Résultats</div>
+                                </div>
+                                <div class="indicator-label">Événements évités</div>
+                                <div class="indicator-description">
+                                    <p>Réduction des événements indésirables grâce au suivi pharmaceutique</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="card" style="margin-top: 2rem;">
+                        <div class="card" style="margin-top: 3rem;">
                             <ul class="bullets">
-                                <li>Couverture : % de patients éligibles engagés dans chaque mission</li>
-                                <li>Process : % fiches complètes + délais d\'envoi MSS</li>
-                                <li>Résultats : évènements indésirables évités, satisfaction patient, retours prescripteurs</li>
+                                <li>Tableau de bord mensuel avec indicateurs clés de performance</li>
+                                <li>Revue d'équipe trimestrielle pour analyse et amélioration continue</li>
+                                <li>Retours prescripteurs et satisfaction patient mesurés régulièrement</li>
                             </ul>
-                            <p style="color: #818CF8; margin-top: 1rem;">💡 Tableau de bord mensuel + revue d\'équipe trimestrielle</p>
+                            <p style="color: #818CF8; margin-top: 1rem;">💡 Utiliser les données pour identifier les axes d'amélioration prioritaires</p>
                         </div>
                     `;
                     break;
